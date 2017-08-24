@@ -36,7 +36,14 @@ public class Sql2oAccoutrementsDaoTest {
         Accoutrements newThing = helper();
         assertTrue(newThing instanceof Accoutrements);
         assertTrue(newThing instanceof ItemsAll);
+    }
 
+    @Test
+    public void getName(){
+        Accoutrements newThing = helper();
+        accoutrementsDao.add(newThing);
+        Accoutrements foundThing = accoutrementsDao.findById(1);
+        assertEquals("Lady Bug Tea Cosy", foundThing.getName());
     }
 
     //helper

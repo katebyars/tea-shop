@@ -50,4 +50,12 @@ public class Sql2oTeaDaoTest {
 
     }
 
+    @Test
+    public void getPrice(){
+        Tea newTea = setUpNewTea();
+        teaDao.add(newTea);
+        Tea foundTea = teaDao.findById(1);
+        assertEquals(13.50, foundTea.getPrice(), 0);
+    }
+
 }

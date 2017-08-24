@@ -9,6 +9,7 @@ public interface TeaDao {
     void add(Tea tea);
 
     //READ
+    Tea findById(int id);
 
     //UPDATE
 

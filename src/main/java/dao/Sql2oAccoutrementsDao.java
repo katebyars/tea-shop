@@ -26,6 +26,15 @@ public class Sql2oAccoutrementsDao implements AccoutrementsDao {
         } catch (Sql2oException ex){
             System.out.println(ex);
         }
+    }
 
+    @Override
+    public Accoutrements findById(int id){
+        String sql = "SELECT * FROM accoutrements WHERE id = :id";
+        try (Connection con = sql2o.open()){
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Accoutrements.class);
+        }
     }
 }

@@ -25,4 +25,13 @@ public class Sql2oTeaDao implements TeaDao {
         }
     }
 
+    @Override
+    public Tea findById(int id) {
+        String sql = "SELECT * FROM teas WHERE id = :id";
+        try (Connection con = sql2o.open()){
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Tea.class);
+        }
+    }
 }
