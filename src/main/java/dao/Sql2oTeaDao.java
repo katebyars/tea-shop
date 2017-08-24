@@ -12,6 +12,7 @@ public class Sql2oTeaDao implements TeaDao {
     public Sql2oTeaDao(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
+
     @Override
     public void add(Tea tea) {
         String sql = "INSERT INTO teas (name, price, image, type, sourceCountry) VALUES (:name, :price, :image, :type, :sourceCountry)";
