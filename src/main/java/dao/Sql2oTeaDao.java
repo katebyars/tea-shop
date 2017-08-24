@@ -34,4 +34,12 @@ public class Sql2oTeaDao implements TeaDao {
                     .executeAndFetchFirst(Tea.class);
         }
     }
+
+    @Override
+    public List<Tea> getAll(){
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM teas")
+                    .executeAndFetch(Tea.class);
+        }
+    }
 }

@@ -58,4 +58,11 @@ public class Sql2oTeaDaoTest {
         assertEquals(13.50, foundTea.getPrice(), 0);
     }
 
+    @Test
+    public void getAll(){
+        Tea newTea = setUpNewTea();
+        teaDao.add(newTea);
+        assertEquals(1, teaDao.getAll().size());
+    }
+
 }
